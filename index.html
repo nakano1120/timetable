@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>時間割タイマー</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Noto+Serif+JP:wght@200&display=swap"
+    rel="stylesheet">
+  <link rel="shortcut icon" href="./external-content.duckduckgo.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="container">
+    <h1>
+      <div id="nowtimer">00:00:00</div>
+    </h1>
+    <p><span id="next"></span></p>
+    <div id="timer">00：00:00</div><br>
+    <div id="allend">(終了 0:00)</div>
+    <div class="controls">
+      <div class="pop-box">
+        <label for="popup-on">
+          <div class="btn-open">設定</div>
+        </label>
+        <input type="checkbox" id="popup-on">
+        <div class="popup">
+          <label for="popup-on" class="icon-close">×</label>
+          <div class="popup-content">
+            <!-- ポップアップの中身 -->
+            <h3>設定</h3>
+            背景色:<input type="color" id="bg" value="#0000aa" onchange="bgcolor()">
+            文字色:<input type="color" id="tx" value="#eeeeee" onchange="txcolor()"><br>
+            開始時刻:<input type="time" id="starttime" value="09:45" onchange="jikanwari()">
+            何限までか:<input type="number" id="hourend" value="6" onchange="jikanwari()"><br>
+            １限ごとの時間(分):<input type="number" id="hourtime" value="50" onchange="jikanwari()">
+            １限ごとの休憩(分):<input type="number" id="resttime" value="10" onchange="jikanwari()"><br>
+            <div id="bigrestform">
+              ※休憩の時間を10、休憩を入れる前の時間を1にすると平常通り動きます<br>
+              大きい休憩の時間:<input type="number" id="bigresttime" value="40" onchange="jikanwari()">
+              大きい休憩を入れる前の時間:<input type="number" id="bigrestpos" value="3" onchange="jikanwari()">
+            </div>
+            <!-- ./ポップアップの中身　ここまで -->
+          </div>
+          <label for="popup-on">
+            <div class="btn-close">閉じる</div>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div id="gen">
+      1時間目:<div id="gen1"></div>
+    </div>
+    <br>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
